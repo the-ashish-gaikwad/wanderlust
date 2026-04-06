@@ -219,3 +219,18 @@ select {
 .delete-btn {
   background-color: #222222;
 }
+
+.delete-btn:hover {
+  border: 1px solid #222222 !important;
+  color: #222222 !important;
+}
+
+.btn-equal {
+  width: 35% !important;
+}
+
+@media (max-width: 768px) {
+  .btn-equal {
+   width: 100% !important;
+}
+}
