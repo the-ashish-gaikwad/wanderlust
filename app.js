@@ -47,10 +47,10 @@ const validateListing = (req, res, next) => {
 // index route GET /listings
 app.get(
   "/listings",
-  wrapAsync(async (req, res) => {
+  async (req, res) => {
     let allListings = await Listing.find({});
     res.render("index.ejs", { allListings });
-  }),
+  },
 );
 
 // new and create route GET /listings/new  POST /listings
@@ -63,53 +63,53 @@ app.get("/listings/new", (req, res) => {
 app.post(
   "/listings",
   validateListing,
-  wrapAsync(async (req, res, next) => {
+  async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
-  }),
+  },
 );
 
 // edit and update route GET /listings/:id/edit PUT /listing/:id
 // edit route GET /listings/:id/edit
 app.get(
   "/listings/:id/edit",
-  wrapAsync(async (req, res) => {
+  async (req, res) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
     res.render("edit.ejs", { listing });
-  }),
+  },
 );
 
 // update route PUT /listings/:id
 app.put(
   "/listings/:id",
   validateListing,
-  wrapAsync(async (req, res) => {
+  async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
     res.redirect(`/listings/${id}`);
-  }),
+  },
 );
 
 // show route GET /listings/:id
 app.get(
   "/listings/:id",
-  wrapAsync(async (req, res) => {
+  async (req, res) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
     res.render("show.ejs", { listing });
-  }),
+  },
 );
 
 // delete route DELETE /listings/:id
 app.delete(
   "/listings/:id",
-  wrapAsync(async (req, res) => {
+  async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndDelete(id);
     res.redirect("/listings");
-  }),
+  },
 );
 
 app.use("/*path", (req, res, next) => {
