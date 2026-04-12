@@ -109,7 +109,7 @@ select {
 /* Navbar */
 
 .navbar {
-  min-height: 5rem;
+  min-height: 4.5rem;
   height: auto;
   background-color: #fff;
 }
@@ -158,32 +158,32 @@ select {
   color: #222222;
 }
 
-.card {
+.listing-card {
   border: none !important;
   margin-bottom: 2rem;
 }
 
-.card-img-top {
+.listing-card-img-top {
   border-radius: 1rem !important;
   width: 100% !important;
   object-fit: cover !important;
 }
 
-.card-body {
+.listing-card-body {
   padding: 0.3rem !important;
 }
 
-.card-text p {
+.listing-card-text p {
   font-weight: 400 !important;
 }
 
 /* card effects */
 
-.card-img-overlay {
+.listing-card-img-overlay {
   opacity: 0;
 }
 
-.card-img-overlay:hover {
+.listing-card-img-overlay:hover {
   opacity: 0.1;
   background-color: #fff;
 }
@@ -205,15 +205,23 @@ select {
 /* show page */
 
 .show-img {
-  height: 40vh;
+  height: 48vh;
+  border-radius: .6rem !important;
+  object-fit: cover !important;
+}
+
+@media (max-width: 770px) {
+  .show-img {
+    height: 60vh;
+  }
 }
 
 .show-title {
   margin: .4rem 0 .4rem 0;
 }
 
-.show-card-body * + * {
-  margin-bottom: 0.4rem;
+.show-card-body > * {
+  margin-top: 0.6rem;
 }
 
 .delete-btn {
@@ -226,11 +234,66 @@ select {
 }
 
 .btn-equal {
-  width: 35% !important;
+  width: 40% !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   .btn-equal {
    width: 100% !important;
 }
+}
+
+.rating-del-btn {
+  position: absolute;
+  right: 0.65rem;
+  top: 0.65rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: scale 0.3s ease;
+  border: none;
+  background-color: #fff;
+}
+
+.rating-del-btn:hover {
+  scale: 1.12;
+  color: red;
+}
+
+/* review section inside show route */
+/* .review-scetion {
+  margin-top: 2.1rem;
+  margin-bottom: 2.2rem;
+} */
+
+.form-body {
+  border: 1px solid gainsboro;
+  border-radius: .5rem;
+  padding: 2rem !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.form-range::-webkit-slider-thumb {
+  background-color: #ff385c;
+}
+
+.form-range::-webkit-slider-thumb:active {
+  background-color: #e03150; /* Slightly darker when pressed */
+}
+
+/* Firefox */
+.form-range::-moz-range-thumb {
+  background-color: #ff385c;
+}
+
+.form-range::-moz-range-thumb:active {
+  background-color: #e03150;
+}
+
+/* Change the focus 'glow' to match #ff385c */
+.form-range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(255, 56, 92, 0.25);
+}
+
+.form-range:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(255, 56, 92, 0.25);
 }
