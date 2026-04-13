@@ -22,10 +22,12 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+// GET /login
 router.get("/login", (req, res) => {
   res.render("../views/users/login.ejs");
 });
 
+// POST /login
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -37,5 +39,16 @@ router.post(
     res.redirect("/listings")
   },
 );
+
+// GET /logout
+router.get("/logout", (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        req.flash("success", "Logged Out!");
+        res.redirect("/listings");
+    })
+})
 
 module.exports = router;
