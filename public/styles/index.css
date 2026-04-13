@@ -265,6 +265,11 @@ select {
   margin-bottom: 2.2rem;
 } */
 
+.my-6 {
+  margin-top: 4.5rem !important;
+  margin-bottom: 4.5rem !important;
+}
+
 .form-body {
   border: 1px solid gainsboro;
   border-radius: .5rem;
