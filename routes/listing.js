@@ -3,6 +3,7 @@ const router = express.Router();
 const ExpressError = require("../utils/expressError.js");
 const Listing = require("../models/listing.js");
 const { listingSchema } = require("../schema.js");
+const { isLoggedIn } = require("../middleware.js");
 
 const validateListing = (req, res, next) => {
   let { error } = listingSchema.validate(req.body);
@@ -22,13 +23,8 @@ router.get("/", async (req, res) => {
 
 // new and create route GET /listings/new  POST /listings
 // new route GET /listings/new
-router.get("/new", (req, res) => {
-  if(req.isAuthenticated()) {
-    res.render("listings/new.ejs");
-  } else {
-    req.flash("error", "Login Required.");
-    res.redirect("/login")
-  }
+router.get("/new", isLoggedIn, (req, res) => {
+  res.render("listings/new.ejs");
 });
 
 // create route POST /listings
@@ -41,10 +37,10 @@ router.post("/", validateListing, async (req, res, next) => {
 
 // edit and update route GET /listings/:id/edit PUT /listing/:id
 // edit route GET /listings/:id/edit
-router.get("/:id/edit", async (req, res) => {
+router.get("/:id/edit", isLoggedIn, async (req, res) => {
   let { id } = req.params;
   let listing = await Listing.findById(id);
-  if(!listing) {
+  if (!listing) {
     req.flash("error", "Listing you requested for does not exist!");
     res.redirect("/listings");
   } else {
@@ -64,7 +60,7 @@ router.put("/:id", validateListing, async (req, res) => {
 router.get("/:id", async (req, res) => {
   let { id } = req.params;
   let listing = await Listing.findById(id).populate("reviews");
-  if(!listing) {
+  if (!listing) {
     req.flash("error", "Listing you requested for does not exist!");
     res.redirect("/listings");
   } else {
@@ -73,12 +69,11 @@ router.get("/:id", async (req, res) => {
 });
 
 // delete route DELETE /listings/:id
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", isLoggedIn, async (req, res) => {
   let { id } = req.params;
   await Listing.findByIdAndDelete(id);
   req.flash("success", "Listing Deleted!");
   res.redirect("/listings");
 });
-
 
 module.exports = router;
