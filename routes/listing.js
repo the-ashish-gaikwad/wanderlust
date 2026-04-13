@@ -23,7 +23,12 @@ router.get("/", async (req, res) => {
 // new and create route GET /listings/new  POST /listings
 // new route GET /listings/new
 router.get("/new", (req, res) => {
-  res.render("listings/new.ejs");
+  if(req.isAuthenticated()) {
+    res.render("listings/new.ejs");
+  } else {
+    req.flash("error", "Login Required.");
+    res.redirect("/login")
+  }
 });
 
 // create route POST /listings
