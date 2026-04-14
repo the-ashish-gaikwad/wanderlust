@@ -18,21 +18,24 @@
         <p>
           <%= listing.location %>, <%= listing.country %>
         </p>
-        <p></p>
+
+        <% if (currUser && currUser._id.equals(listing.owner._id)) { %>
+          <div class="row g-2 btn-equal g-3">
+            <div class="col">
+              <form action="/listings/<%= listing._id %>/edit" method="get">
+                <button class="btn btn-primary w-100">Edit</button>
+              </form>
+            </div>
+            <div class="col">
+              <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
+                <button class="btn delete-btn w-100">Delete</button>
+              </form>
+            </div>
+          </div>
+        <% } %>
+        
       </div>
 
-      <div class="row g-2 btn-equal g-3">
-        <div class="col">
-          <form action="/listings/<%= listing._id %>/edit" method="get">
-            <button class="btn btn-primary w-100">Edit</button>
-          </form>
-        </div>
-        <div class="col">
-          <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
-            <button class="btn delete-btn w-100">Delete</button>
-          </form>
-        </div>
-      </div>
     </div>
 
     <hr class="col-lg-8 offset-lg-2 mt-5 mb-3">
