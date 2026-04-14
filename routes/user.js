@@ -4,6 +4,7 @@ const ExpressError = require("../utils/expressError.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("../models/user.js");
+const { saveRedirectUrl } = require("../middleware.js");
 
 router.get("/signup", (req, res) => {
   res.render("../views/users/signup.ejs");
@@ -35,13 +36,16 @@ router.get("/login", (req, res) => {
 // POST /login
 router.post(
   "/login",
+  saveRedirectUrl,
   passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: true,
   }),
   async (req, res) => {
     req.flash("success", "welcome back to Wanderlust");
-    res.redirect("/listings");
+    const redirectUrl = res.locals.redirectUrl || "/";
+    delete req.session.redirectUrl; // ← Clean up
+    res.redirect(redirectUrl);
   },
 );
 

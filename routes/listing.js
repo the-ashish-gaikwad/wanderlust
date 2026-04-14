@@ -30,6 +30,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 // create route POST /listings
 router.post("/", validateListing, async (req, res, next) => {
   const newListing = new Listing(req.body.listing);
+  newListing.owner = req.user._id;
   await newListing.save();
   req.flash("success", "New Listing Created!");
   res.redirect("/listings");
@@ -59,7 +60,9 @@ router.put("/:id", validateListing, async (req, res) => {
 // show route GET /listings/:id
 router.get("/:id", async (req, res) => {
   let { id } = req.params;
-  let listing = await Listing.findById(id).populate("reviews");
+  let listing = await Listing.findById(id)
+    .populate("reviews")
+    .populate("owner");
   if (!listing) {
     req.flash("error", "Listing you requested for does not exist!");
     res.redirect("/listings");

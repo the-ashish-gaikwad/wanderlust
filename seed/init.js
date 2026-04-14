@@ -11,7 +11,7 @@ async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
 }
 
-let allListings = [
+let initData = [
   {
     title: "City Lights Apartment",
     description: "Modern apartment in the heart of downtown.",
@@ -194,4 +194,14 @@ let allListings = [
   },
 ];
 
-Listing.insertMany(allListings);
+const initDB = async () => {
+  await Listing.deleteMany({});
+  initData = initData?.map((obj) =>( {
+    ...obj,
+    owner: "69dd2186ff5566a29a055270"
+  }));
+  await Listing.insertMany(initData);
+  console.log("sata was initialized");
+}
+
+initDB();
