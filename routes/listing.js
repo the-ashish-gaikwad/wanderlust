@@ -3,27 +3,19 @@ const router = express.Router();
 const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
 
-// index route GET /listings
-router.get("/", listingController.index);
+router
+  .route("/")
+  .get(listingController.index) // index route GET /listings
+  .post(validateListing, listingController.createListing); // create route POST /listings
+  
+router.get("/new", isLoggedIn, listingController.renderNewForm); // new route GET /listings/new
 
-// new and create route GET /listings/new  POST /listings
-// new route GET /listings/new
-router.get("/new", isLoggedIn, listingController.renderNewForm);
+router
+  .route("/:id")
+  .get(listingController.showListing) // show route GET /listings/:id
+  .put(validateListing, isOwner, listingController.updateListing) // update route PUT /listings/:id
+  .delete(isLoggedIn, isOwner, listingController.destoryListing); // delete route DELETE /listings/:id
 
-// create route POST /listings
-router.post("/", validateListing, listingController.createListing);
-
-// edit and update route GET /listings/:id/edit PUT /listing/:id
-// edit route GET /listings/:id/edit
-router.get("/:id/edit", isLoggedIn, listingController.renderEditForm);
-
-// update route PUT /listings/:id
-router.put("/:id", validateListing, isOwner, listingController.updateListing);
-
-// show route GET /listings/:id
-router.get("/:id", listingController.showListing);
-
-// delete route DELETE /listings/:id
-router.delete("/:id", isLoggedIn, isOwner, listingController.destoryListing);
+router.get("/:id/edit", isLoggedIn, listingController.renderEditForm); // edit route GET /listings/:id/edit
 
 module.exports = router;
