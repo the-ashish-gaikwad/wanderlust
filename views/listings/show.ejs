@@ -51,6 +51,7 @@
                   <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
                     <button class="rating-del-btn"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
+                  <h5><i>@<%= review.author.username %></i></h5>
                   <p>Rating: <%= review.rating %>
                   </p>
                   <p>Comment: <%= review.comment %>
