@@ -52,9 +52,9 @@
                     <button class="rating-del-btn"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
                   <h5><i>@<%= review.author.username %></i></h5>
-                  <p>Rating: <%= review.rating %>
+                  <p class="starability-result" st data-rating="<%= review.rating %>">
                   </p>
-                  <p>Comment: <%= review.comment %>
+                  <p><%= review.comment %>
                   </p>
                 </div>
               </div>
@@ -75,14 +75,22 @@
           <h4 style="margin-bottom: 2.2rem">Leave a Review</h4>
           <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate
             class="needs-validation form-body">
+            <fieldset class="starability-grow mb-3">
+              <p class="mb-3">Rating</p>
+              <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+              <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
             <div class="mb-3">
-              <label for="rating" class="form-lable">Rating: <span id="currentValue">3</span></label>
-              <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]"
-                class="form-control" />
-            </div>
-
-            <div class="mb-3">
-              <label for="comment" class="form-lable">Comments</label>
+              <label for="comment" class="form-lable mb-2">Comments</label>
               <textarea name="review[comment]" id="comment" class="form-control" rows="5" required></textarea>
               <div class="invalid-feedback">please enter comment</div>
             </div>
