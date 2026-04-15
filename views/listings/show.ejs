@@ -33,7 +33,7 @@
             </div>
           </div>
         <% } %>
-        
+
       </div>
 
     </div>
@@ -62,27 +62,30 @@
 
     </div>
 
-    <hr class="col-lg-8 offset-lg-2 mt-3 mb-3">
+    
+    <% if (currUser) { %>
+      <hr class="col-lg-8 offset-lg-2 mt-3 mb-3">
+      <div class="review-scetion col-lg-8 offset-lg-2 mt-3 mb-5">
+        <div>
+          <h4 style="margin-bottom: 2.2rem">Leave a Review</h4>
+          <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate
+            class="needs-validation form-body">
+            <div class="mb-3">
+              <label for="rating" class="form-lable">Rating: <span id="currentValue">3</span></label>
+              <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]"
+                class="form-control" />
+            </div>
 
-    <div class="review-scetion col-lg-8 offset-lg-2 mt-3 mb-5">
-      <div>
-        <h4 style="margin-bottom: 2.2rem">Leave a Review</h4>
-        <form action="/listings/<%= listing.id %>/reviews" method="post" novalidate class="needs-validation form-body">
-          <div class="mb-3">
-            <label for="rating" class="form-lable">Rating: <span id="currentValue">3</span></label>
-            <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]"
-              class="form-control" />
-          </div>
-
-          <div class="mb-3">
-            <label for="comment" class="form-lable">Comments</label>
-            <textarea name="review[comment]" id="comment" class="form-control" rows="5" required></textarea>
-            <div class="invalid-feedback">please enter comment</div>
-          </div>
-          <div class="row btn-equal" style="padding-left: 0.9rem">
-            <button type="submit" class="btn btn-primary w-50">Submit</button>
-          </div>
-        </form>
+            <div class="mb-3">
+              <label for="comment" class="form-lable">Comments</label>
+              <textarea name="review[comment]" id="comment" class="form-control" rows="5" required></textarea>
+              <div class="invalid-feedback">please enter comment</div>
+            </div>
+            <div class="row btn-equal" style="padding-left: 0.9rem">
+              <button type="submit" class="btn btn-primary w-50">Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    <% } %>
   </div>
