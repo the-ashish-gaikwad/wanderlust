@@ -5,10 +5,10 @@
       <h3 style="margin: 1.5rem 0">
         <%= listing.title %>
       </h3>
-      <img src="<%=listing.image %>" class="card-img-top show-img" alt="Listing Image" />
+      <img src="<%=listing.image.url %>" class="card-img-top show-img" alt="Listing Image" />
       <div class="show-card-body">
         <p>
-          <i>Hosted by <%= listing.owner.username %></i>
+          <i>Hosted by @<%= listing.owner.username %></i>
         </p>
         <p>
           <%= listing.description %>
@@ -52,7 +52,7 @@
                     <button class="rating-del-btn"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
                   <h5><i>@<%= review.author.username %></i></h5>
-                  <p class="starability-result" st data-rating="<%= review.rating %>">
+                  <p class="starability-result mb-2" st data-rating="<%= review.rating %>">
                   </p>
                   <p><%= review.comment %>
                   </p>
