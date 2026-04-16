@@ -234,12 +234,48 @@ let initData = [
   },
 ];
 
+const coordinatesByPlace = {
+  "Dubai|UAE": [55.2708, 25.2048],
+  "Marrakech|Morocco": [-7.9811, 31.6295],
+  "Munnar|India": [77.0595, 10.0889],
+  "Lucerne|Switzerland": [8.3093, 47.0502],
+  "Jaipur|India": [75.7873, 26.9124],
+  "Alleppey|India": [76.3388, 9.4981],
+  "Queenstown|New Zealand": [168.6626, -45.0312],
+  "Rishikesh|India": [78.2676, 30.0869],
+  "Bali|Indonesia": [115.1889, -8.4095],
+  "Auli|India": [79.5699, 30.5284],
+  "Lisbon|Portugal": [-9.1393, 38.7223],
+  "Santorini|Greece": [25.4615, 36.3932],
+  "Coorg|India": [75.8069, 12.3375],
+  "Jodhpur|India": [73.0243, 26.2389],
+  "Male|Maldives": [73.5093, 4.1755],
+  "Bengaluru|India": [77.5946, 12.9716],
+  "Kyoto|Japan": [135.7681, 35.0116],
+  "Sydney|Australia": [151.2093, -33.8688],
+  "Monteverde|Costa Rica": [-84.825, 10.3009],
+  "Doha|Qatar": [51.531, 25.2854],
+};
+
 const initDB = async () => {
   await Listing.deleteMany({});
-  initData = initData?.map((obj) => ({
-    ...obj,
-    owner: "69dd2186ff5566a29a055270",
-  }));
+  initData = initData?.map((obj) => {
+    const key = `${obj.location}|${obj.country}`;
+    const coordinates = coordinatesByPlace[key];
+
+    if (!coordinates) {
+      throw new Error(`Missing coordinates for ${key}`);
+    }
+
+    return {
+      ...obj,
+      owner: "69dd2186ff5566a29a055270",
+      geometry: {
+        type: "Point",
+        coordinates,
+      },
+    };
+  });
   await Listing.insertMany(initData);
   console.log("data was initialized");
 };
