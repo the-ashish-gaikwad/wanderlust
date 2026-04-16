@@ -1,0 +1,4 @@
+# .copilotignore
+.env
+**/.env
+**/*.env

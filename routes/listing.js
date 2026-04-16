@@ -2,11 +2,17 @@ const express = require("express");
 const router = express.Router();
 const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
+const multer = require("multer");
+const {storage} = require("../cloudConfig.js");
+const upload = multer({ storage });
 
 router
   .route("/")
   .get(listingController.index) // index route GET /listings
-  .post(validateListing, listingController.createListing); // create route POST /listings
+  // .post(isLoggedIn, validateListing, listingController.createListing); // create route POST /listings
+  .post( upload.single("listing[image]"), (req, res) => {
+  res.json(req.file);
+});
   
 router.get("/new", isLoggedIn, listingController.renderNewForm); // new route GET /listings/new
 

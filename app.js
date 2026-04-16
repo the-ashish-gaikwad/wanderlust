@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-require("dotenv").config();
+if(process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
 const ExpressError = require("./utils/expressError.js");
 const session = require("express-session");
 const flash = require("connect-flash");
