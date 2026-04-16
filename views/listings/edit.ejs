@@ -16,9 +16,14 @@
                         value="<%= listing.description %>">
                     <div class="invalid-feedback">please enter description</div>
                 </div>
+                
+                <div class="mb-3">
+                    <img src="<%= originalImageUrl %>" alt="current image">
+                    <p class="small"><i>Original Listing Image (preview)</i></p>
+                </div>
 
                 <div class="mb-3">
-                    <label for="image" class="form-lable">Image</label>
+                    <label for="image" class="form-lable">New Image</label>
                     <input id="image" class="form-control" name="listing[image]" type="file">
                     <div class="invalid-feedback">please upload an image</div>
                 </div>
