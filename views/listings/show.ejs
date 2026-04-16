@@ -54,10 +54,10 @@
                   <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="post">
                     <button class="rating-del-btn"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
-                  <h5><i>@<%= review.author.username %></i></h5>
+                  <h6><i>@<%= review.author.username %></i></h6>
                   <p class="starability-result mb-2" st data-rating="<%= review.rating %>">
-                  </p>
-                  <p><%= review.comment %>
+                  </p>  
+                  <p class="small"><%= review.comment %>
                   </p>
                 </div>
               </div>
