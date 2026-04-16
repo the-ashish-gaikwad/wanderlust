@@ -21,11 +21,3 @@
     );
   });
 })();
-
-// rating
-const range = document.getElementById("rating");
-const display = document.getElementById("currentValue");
-
-range.addEventListener("input", () => {
-  display.textContent = range.value;
-});
