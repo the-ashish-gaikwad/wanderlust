@@ -21,7 +21,13 @@ router.get("/new", isLoggedIn, listingController.renderNewForm); // new route GE
 router
   .route("/:id")
   .get(listingController.showListing) // show route GET /listings/:id
-  .put(validateListing, isOwner, listingController.updateListing) // update route PUT /listings/:id
+  .put(
+    validateListing,
+    isOwner,
+    isLoggedIn,
+    upload.single("listing[image]"),
+    listingController.updateListing,
+  ) // update route PUT /listings/:id
   .delete(isLoggedIn, isOwner, listingController.destoryListing); // delete route DELETE /listings/:id
 
 router.get("/:id/edit", isLoggedIn, listingController.renderEditForm); // edit route GET /listings/:id/edit
