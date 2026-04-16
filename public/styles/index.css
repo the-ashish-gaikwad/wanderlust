@@ -315,7 +315,8 @@ select {
 }
 
 @media (max-width: 770px) {
-  /* .map {
-    height: 40%;
-  } */
+  #map {
+    height: 40vh !important;
+    width: 100%;
+  }
 }
