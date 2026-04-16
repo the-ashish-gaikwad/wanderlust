@@ -1,6 +1,7 @@
 <% layout("/layouts/boilerplate") -%>
 <script>
   const mapKey = "<%= process.env.MAPTILER_API_KEY %>";
+  const coords = <%- JSON.stringify(listing.geometry.coordinates) %>
 </script>
 
   <div class="row">
