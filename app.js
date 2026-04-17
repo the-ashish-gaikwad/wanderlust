@@ -39,10 +39,6 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req, res) => {
-  res.send("HOME");
-});
-
 const sessionOptions = {
   secret: "mySuperSecretKey123",
   resave: false,
@@ -85,5 +81,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on : http://localhost:${PORT}/`);
+  console.log(`Server running on : http://localhost:${PORT}/listings`);
 });

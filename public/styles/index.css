@@ -114,8 +114,62 @@ select {
   background-color: #fff;
 }
 
-.nav-link {
+.navbar-link {
   color: black !important;
+  border-radius: 20px;
+  padding: 0.6rem 1rem !important;
+  line-height: 1.2;
+  display: inline-block;
+  text-align: center;
+}
+
+.navbar-link:hover {
+  background-color: #f7f7f7;
+}
+
+#login {
+  background-color: #ff385c;
+  color: #fff !important;
+  border-radius: 20px;
+  padding: 0.6rem 1.2rem !important;
+  margin-left: 0.4rem !important;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+  line-height: 1.2;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+#login:hover {
+  background-color: #fff;
+  color: #ff385c !important;
+  border: 1px solid #ff385c;
+}
+
+@media (max-width: 61.96875rem) {
+  #login {
+    background-color: #fff;
+    color: #000 !important;
+    border-radius: 0;
+    padding: 0 !important;
+    margin-bottom: 0.8rem !important;
+    display: inline-block;
+    text-align: start;
+    margin-left: 0 !important;
+  }
+
+  .navbar-nav * {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .navbar-link {
+    padding: 0 !important;
+    text-align: start;
+  }
+
 }
 
 /* Footer */
