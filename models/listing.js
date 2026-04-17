@@ -2,6 +2,25 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review");
 
+const CATEGORY_ENUM = [
+  "Trending",
+  "Rooms",
+  "Farms",
+  "Beach",
+  "Breathtaking",
+  "Iconic cities",
+  "Ferry",
+  "Cabins",
+  "Sports",
+  "Pools",
+  "Skiing",
+  "International",
+  "E-sports",
+  "Mountains",
+  "Castles",
+  "Camping",
+];
+
 const listing = new Schema({
   title: {
     type: String,
@@ -36,10 +55,19 @@ const listing = new Schema({
       required: true,
     },
   },
-  category: {
-    type: String,
-    enum: ["Trending", "Rooms", "Farms", "Beach", "Breathtaking", "Iconic cities", "Ferry", "Cabins", "Sports", "Pools", "Skiing", "International", "E-sports", "Mountains", "Castles", "Camping"]
-  }
+  categories: {
+    type: [
+      {
+        type: String,
+        enum: CATEGORY_ENUM,
+      },
+    ],
+    default: ["Trending"],
+    validate: {
+      validator: (value) => Array.isArray(value) && value.length > 0,
+      message: "At least one category is required",
+    },
+  },
 });
 
 listing.post("findOneAndDelete", async (listing) => {

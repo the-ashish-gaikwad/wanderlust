@@ -22,6 +22,7 @@ let initData = [
     price: 4100,
     location: "Dubai",
     country: "UAE",
+    categories: ["Iconic cities", "Rooms"],
   },
   {
     title: "Desert Camp Stay",
@@ -33,6 +34,7 @@ let initData = [
     price: 2100,
     location: "Marrakech",
     country: "Morocco",
+    categories: ["Camping", "Trending"],
   },
   {
     title: "Tea Garden Cottage",
@@ -44,6 +46,7 @@ let initData = [
     price: 2800,
     location: "Munnar",
     country: "India",
+    categories: ["Farms", "Breathtaking"],
   },
   {
     title: "Lakefront Bungalow",
@@ -55,6 +58,7 @@ let initData = [
     price: 5300,
     location: "Lucerne",
     country: "Switzerland",
+    categories: ["Breathtaking", "Rooms"],
   },
   {
     title: "Old Town Heritage Home",
@@ -66,6 +70,7 @@ let initData = [
     price: 3600,
     location: "Jaipur",
     country: "India",
+    categories: ["Castles", "International"],
   },
   {
     title: "Backwater Houseboat",
@@ -77,6 +82,7 @@ let initData = [
     price: 6200,
     location: "Alleppey",
     country: "India",
+    categories: ["Ferry", "Trending"],
   },
   {
     title: "Hilltop Glass House",
@@ -88,6 +94,7 @@ let initData = [
     price: 7000,
     location: "Queenstown",
     country: "New Zealand",
+    categories: ["Mountains", "Breathtaking"],
   },
   {
     title: "Riverside Campsite",
@@ -99,6 +106,7 @@ let initData = [
     price: 1800,
     location: "Rishikesh",
     country: "India",
+    categories: ["Sports", "Camping"],
   },
   {
     title: "Beach Shack Deluxe",
@@ -110,6 +118,7 @@ let initData = [
     price: 3400,
     location: "Bali",
     country: "Indonesia",
+    categories: ["Beach", "Trending"],
   },
   {
     title: "Snowline Chalet",
@@ -121,6 +130,7 @@ let initData = [
     price: 5600,
     location: "Auli",
     country: "India",
+    categories: ["Skiing", "Mountains"],
   },
   {
     title: "Colonial Courtyard Stay",
@@ -132,6 +142,7 @@ let initData = [
     price: 3900,
     location: "Lisbon",
     country: "Portugal",
+    categories: ["International", "Iconic cities"],
   },
   {
     title: "Seaside Cliff Villa",
@@ -143,6 +154,7 @@ let initData = [
     price: 8200,
     location: "Santorini",
     country: "Greece",
+    categories: ["Breathtaking", "Beach"],
   },
   {
     title: "Valley View Homestay",
@@ -154,6 +166,7 @@ let initData = [
     price: 2400,
     location: "Coorg",
     country: "India",
+    categories: ["Farms", "Mountains"],
   },
   {
     title: "Fortside Haveli",
@@ -165,6 +178,7 @@ let initData = [
     price: 4700,
     location: "Jodhpur",
     country: "India",
+    categories: ["Castles", "Trending"],
   },
   {
     title: "Island Palm Cottage",
@@ -176,6 +190,7 @@ let initData = [
     price: 5100,
     location: "Male",
     country: "Maldives",
+    categories: ["Beach", "Breathtaking"],
   },
   {
     title: "Garden Studio Loft",
@@ -187,6 +202,7 @@ let initData = [
     price: 2700,
     location: "Bengaluru",
     country: "India",
+    categories: ["Rooms", "Trending"],
   },
   {
     title: "Temple Town Inn",
@@ -198,6 +214,7 @@ let initData = [
     price: 1900,
     location: "Kyoto",
     country: "Japan",
+    categories: ["International", "Rooms"],
   },
   {
     title: "Harbor View Suite",
@@ -209,6 +226,7 @@ let initData = [
     price: 6000,
     location: "Sydney",
     country: "Australia",
+    categories: ["Iconic cities", "Beach"],
   },
   {
     title: "Rainforest Eco Lodge",
@@ -220,6 +238,7 @@ let initData = [
     price: 3300,
     location: "Monteverde",
     country: "Costa Rica",
+    categories: ["Camping", "Farms"],
   },
   {
     title: "Sunset Dune Resort",
@@ -231,6 +250,7 @@ let initData = [
     price: 4500,
     location: "Doha",
     country: "Qatar",
+    categories: ["Trending", "International"],
   },
 ];
 
