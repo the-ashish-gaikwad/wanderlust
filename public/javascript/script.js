@@ -21,3 +21,33 @@
     );
   });
 })();
+
+
+const wrapper = document.getElementById("scroll-wrapper");
+const leftBtn = document.getElementById("slideLeft");
+const rightBtn = document.getElementById("slideRight");
+
+// Adjust the scroll amount based on your card width
+const scrollAmount = 300;
+
+rightBtn.addEventListener("click", () => {
+  wrapper.scrollLeft += scrollAmount;
+});
+
+leftBtn.addEventListener("click", () => {
+  wrapper.scrollLeft -= scrollAmount;
+});
+
+
+let taxSwitch = document.getElementById("switchCheckDefault");
+taxSwitch.addEventListener("click", () => {
+  let taxInfo = document.getElementsByClassName("tax-info");
+
+  for (const info of taxInfo) {
+    if (info.style.display != "inline") {
+      info.style.display = "inline";
+    } else {
+      info.style.display = "none";
+    }
+  }
+})

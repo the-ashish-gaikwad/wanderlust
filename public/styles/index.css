@@ -169,8 +169,12 @@ select {
     padding: 0 !important;
     text-align: start;
   }
-
 }
+
+
+/* filters bar */
+
+
 
 /* Footer */
 
@@ -234,12 +238,12 @@ select {
 /* card effects */
 
 .listing-card-img-overlay {
-  opacity: 0;
+  opacity: 0 !important;
 }
 
 .listing-card-img-overlay:hover {
-  opacity: 0.1;
-  background-color: #fff;
+  opacity: 0.1 !important;
+  background-color: #fff !important;
 }
 
 /* new page */
