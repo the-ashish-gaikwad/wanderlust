@@ -179,6 +179,10 @@ select {
   display: none !important;
 }
 
+.mobile-search-input {
+  border-radius: 20px;
+}
+
 .mobile-search-btn {
   border-radius: 50%;
   padding: 5px 8px;
@@ -342,6 +346,15 @@ select {
 .tax-toggle .form-check-input:focus {
   border-color: #000;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.flash {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  margin-right: 30px;
+  margin-bottom: 15px;
 }
 
 /* Custom CSS to target your specific class */
