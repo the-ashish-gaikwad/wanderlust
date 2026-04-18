@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-if(process.env.NODE_ENV != "production") {
+if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 const ExpressError = require("./utils/expressError.js");
@@ -63,6 +63,7 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
+  res.locals.searchCountry = req.query.country || "";
   next();
 });
 
