@@ -448,7 +448,7 @@ select {
 /* show page */
 
 .show-img {
-  height: 45vh;
+  height: 65vh;
   border-radius: 0.6rem !important;
   object-fit: cover !important;
 }
