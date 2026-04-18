@@ -1,3 +1,7 @@
+// Add this at the absolute top of your entry file
+const dns = require("node:dns");
+dns.setServers(["8.8.8.8", "1.1.1.1"]); // Forces Node to use Google/Cloudflare DNS
+
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
