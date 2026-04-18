@@ -12,6 +12,7 @@ if (process.env.NODE_ENV != "production") {
 }
 const ExpressError = require("./utils/expressError.js");
 const session = require("express-session");
+const MongoStore = require("connect-mongo").default; 
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -23,6 +24,7 @@ const userRouter = require("./routes/user.js");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+const dbUrl = process.env.DB_URL
 
 main()
   .then((res) => {
@@ -31,7 +33,7 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.DB_URL);
+  await mongoose.connect(dbUrl);
 }
 
 app.use(express.urlencoded({ extended: true }));
@@ -43,7 +45,20 @@ app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: "mySuperSecretKey123",
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", (err) => {
+  console.log("Error in Mongo Session Store: ", err);
+})
+
 const sessionOptions = {
+  store,
   secret: "mySuperSecretKey123",
   resave: false,
   saveUninitialized: true,
