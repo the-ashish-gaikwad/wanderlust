@@ -45,10 +45,10 @@ a:not([class]) {
 }
 
 /* Make images easier to work with */
-img,
+#responsive-img,
 picture {
-  max-width: 100%;
-  display: block;
+  max-width: 100% !important;
+  display: block !important;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -112,7 +112,9 @@ select {
 }
 
 .navbar-nav {
-  gap: 0.7rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .navbar-link {
@@ -350,9 +352,21 @@ select {
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: 2;
-  margin-right: 30px;
-  margin-bottom: 15px;
+  z-index: 1050; /* Higher z-index to stay above navbars/modals */
+  margin-right: 20px;
+  margin-bottom: 20px;
+  
+  /* Responsive Widths */
+  width: calc(100% - 40px); /* Full width minus margins on mobile */
+  max-width: 400px;         /* Caps the width on tablets/desktops */
+}
+
+/* Optional: Adjust margins for larger screens */
+@media (min-width: 768px) {
+  .flash {
+    margin-right: 40px;
+    margin-bottom: 30px;
+  }
 }
 
 /* Custom CSS to target your specific class */
@@ -425,6 +439,14 @@ select {
 
 .listing-card-body {
   padding: 0.3rem !important;
+}
+
+.listing-card-body * + * {
+  margin-top: 6px;
+}
+
+.listing-card-title {
+  margin-top: 6px;
 }
 
 .listing-card-text p {
