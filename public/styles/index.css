@@ -45,6 +45,7 @@ a:not([class]) {
 }
 
 /* Make images easier to work with */
+img,
 picture {
   max-width: 100%;
   display: block;
@@ -86,9 +87,6 @@ select {
 }
 
 .container {
-  padding-inline: 2em;
-  margin-inline: auto;
-  max-width: 80rem;
   flex: 1;
 }
 
