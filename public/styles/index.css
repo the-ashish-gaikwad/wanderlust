@@ -355,7 +355,6 @@ select {
   z-index: 1050; /* Higher z-index to stay above navbars/modals */
   margin-right: 20px;
   margin-bottom: 20px;
-  
   /* Responsive Widths */
   width: calc(100% - 40px); /* Full width minus margins on mobile */
   max-width: 400px;         /* Caps the width on tablets/desktops */
@@ -490,6 +489,11 @@ select {
   .show-img {
     height: 60vh;
   }
+
+  .scroll-wrapper {
+    gap: 20px;
+    font-size: 15px;
+  }
 }
 
 .show-title {
@@ -518,6 +522,11 @@ select {
   .btn-equal {
     width: 100% !important;
   }
+
+}
+
+.review-card {
+  margin-inline: 0px;
 }
 
 .rating-del-btn {
