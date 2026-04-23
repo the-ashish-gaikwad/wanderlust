@@ -30,7 +30,7 @@ A full-stack travel listing web app where users can discover, create, and manage
 | File Upload | Multer, Cloudinary                      |
 | Maps        | MapTiler Client                         |
 | Validation  | Joi                                     |
-| Styling     | CSS                                     |
+| Styling     | CSS, Bootstrap                                  |
 
 ---
 
