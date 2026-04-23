@@ -3,70 +3,108 @@
         <div class="carousel-container">
             <button class="arrow-btn left-btn" id="slideLeft">&#10094;</button>
             <div id="scroll-wrapper" class="scroll-wrapper mt-4 mb-3">
-                <div class="filter">
-                    <i class="fa-solid fa-fire"></i>
-                    <p class="small">Trending</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-bed"></i>
-                    <p class="small">Rooms</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-building-wheat"></i>
-                    <p class="small">Farms</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-umbrella-beach"></i>
-                    <p class="small">Beach</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-panorama"></i>
-                    <p class="small">Breathtaking</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-archway"></i>
-                    <p class="small">Iconic cities</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-ferry"></i>
-                    <p class="small">Ferry</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-house-chimney-window"></i>
-                    <p class="small">Cabins</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-baseball"></i>
-                    <p class="small">Sports</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-water-ladder"></i>
-                    <p class="small">Pools</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-person-skiing"></i>
-                    <p class="small">Skiing</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-plane-departure"></i>
-                    <p class="small">International</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-gamepad"></i>
-                    <p class="small">E-sports</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-mountain-sun"></i>
-                    <p class="small">Mountains</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-brands fa-fort-awesome"></i>
-                    <p class="small">Castles</p>
-                </div>
-                <div class="filter">
-                    <i class="fa-solid fa-campground"></i>
-                    <p class="small">Camping</p>
-                </div>
+                <a href="/listings?category=Trending"
+                    class="filter-links <%= category === 'Trending' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-fire"></i>
+                        <p class="small">Trending</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Rooms" class="filter-links <%= category === 'Rooms' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-bed"></i>
+                        <p class="small">Rooms</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Farms" class="filter-links <%= category === 'Farms' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-building-wheat"></i>
+                        <p class="small">Farms</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Beach" class="filter-links <%= category === 'Beach' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-umbrella-beach"></i>
+                        <p class="small">Beach</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Breathtaking"
+                    class="filter-links <%= category === 'Breathtaking' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-panorama"></i>
+                        <p class="small">Breathtaking</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Iconic cities"
+                    class="filter-links <%= category === 'Iconic cities' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-archway"></i>
+                        <p class="small">Iconic cities</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Ferry" class="filter-links <%= category === 'Ferry' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-ferry"></i>
+                        <p class="small">Ferry</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Cabins" class="filter-links <%= category === 'Cabins' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-house-chimney-window"></i>
+                        <p class="small">Cabins</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Sports" class="filter-links <%= category === 'Sports' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-baseball"></i>
+                        <p class="small">Sports</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Pools" class="filter-links <%= category === 'Pools' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-water-ladder"></i>
+                        <p class="small">Pools</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Skiing" class="filter-links <%= category === 'Skiing' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-person-skiing"></i>
+                        <p class="small">Skiing</p>
+                    </div>
+                </a>
+                <a href="/listings?category=International"
+                    class="filter-links <%= category === 'International' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-plane-departure"></i>
+                        <p class="small">International</p>
+                    </div>
+                </a>
+                <a href="/listings?category=E-sports"
+                    class="filter-links <%= category === 'E-sports' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <p class="small">E-sports</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Mountains"
+                    class="filter-links <%= category === 'Mountains' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                        <p class="small">Mountains</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Castles" class="filter-links <%= category === 'Castles' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-brands fa-fort-awesome"></i>
+                        <p class="small">Castles</p>
+                    </div>
+                </a>
+                <a href="/listings?category=Camping" class="filter-links <%= category === 'Camping' ? 'focus' : '' %>">
+                    <div class="filter">
+                        <i class="fa-solid fa-campground"></i>
+                        <p class="small">Camping</p>
+                    </div>
+                </a>
             </div>
             <button class="arrow-btn right-btn" id="slideRight">&#10095;</button>
         </div>
@@ -87,7 +125,8 @@
                         <h5 class="listing-card-title">
                             <%= listing.title %>
                         </h5>
-                        <p>&#x20B9; <%= listing.price.toLocaleString("en-IN") %> / night <i class="tax-info">+18% GST</i></p>
+                        <p>&#x20B9; <%= listing.price.toLocaleString("en-IN") %> / night <i class="tax-info">+18%
+                                    GST</i></p>
                         <p class="listing-card-text">
                             <%= listing.description %>
                         </p>

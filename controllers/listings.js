@@ -20,13 +20,27 @@ async function getCoordinates(query) {
 }
 
 module.exports.index = async (req, res) => {
-  let q = req.query.country;
-  if (q !== undefined) {
+  let country = req.query.country;
+  let selectedCategory = req.query.category;
+  let category = req.query.category;
+  if (country !== undefined) {
     let allListings = await Listing.find({
-      country: { $regex: `^${q.trim()}$`, $options: "i" },
+      country: { $regex: `^${country.trim()}$`, $options: "i" },
     });
     if (allListings.length !== 0) {
       return res.render("./listings/index.ejs", { allListings });
+    } else {
+      req.flash("error", `Not available.`);
+      return res.redirect("/listings");
+    }
+  }
+  if (selectedCategory !== undefined) {
+    let allListings = await Listing.find({ categories: selectedCategory });
+    if (allListings.length !== 0) {
+      return res.render("./listings/index.ejs", {
+        allListings,
+        category: category || "",
+      });
     } else {
       req.flash("error", `Not available.`);
       return res.redirect("/listings");
