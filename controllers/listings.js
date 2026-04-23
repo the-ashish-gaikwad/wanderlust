@@ -21,25 +21,24 @@ async function getCoordinates(query) {
 
 module.exports.index = async (req, res) => {
   let country = req.query.country;
-  let selectedCategory = req.query.category;
-  let category = req.query.category;
+  let category = req.query.category || "";
   if (country !== undefined) {
     let allListings = await Listing.find({
       country: { $regex: `^${country.trim()}$`, $options: "i" },
     });
     if (allListings.length !== 0) {
-      return res.render("./listings/index.ejs", { allListings });
+      return res.render("./listings/index.ejs", { allListings, category });
     } else {
       req.flash("error", `Not available.`);
       return res.redirect("/listings");
     }
   }
-  if (selectedCategory !== undefined) {
-    let allListings = await Listing.find({ categories: selectedCategory });
+  if (category !== "") {
+    let allListings = await Listing.find({ categories: category });
     if (allListings.length !== 0) {
       return res.render("./listings/index.ejs", {
         allListings,
-        category: category || "",
+        category,
       });
     } else {
       req.flash("error", `Not available.`);
@@ -47,7 +46,7 @@ module.exports.index = async (req, res) => {
     }
   }
   let allListings = await Listing.find({});
-  res.render("./listings/index.ejs", { allListings });
+  res.render("./listings/index.ejs", { allListings, category });
 };
 
 module.exports.renderNewForm = (req, res) => {

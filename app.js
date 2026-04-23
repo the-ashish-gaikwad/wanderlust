@@ -1,6 +1,6 @@
-// Add this at the absolute top of your entry file
-const dns = require("node:dns");
-dns.setServers(["8.8.8.8", "1.1.1.1"]); // Forces Node to use Google/Cloudflare DNS
+// // Add this at the absolute top of your entry file
+// const dns = require("node:dns");
+// dns.setServers(["8.8.8.8", "1.1.1.1"]); // Forces Node to use Google/Cloudflare DNS
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -58,7 +58,7 @@ store.on("error", (err) => {
 })
 
 const sessionOptions = {
-  store,
+  // store,
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
